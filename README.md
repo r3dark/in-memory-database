@@ -1,7 +1,7 @@
 # In-memory SQL-like Database
 
 ## Problem Statement
-***
+
 The objective is to design and implement an in-memory SQL-like database, which should support the following set of operations / functionality:
 - It should be possible to create or delete databases.
 - It should be possible to create or delete tables in a database.
