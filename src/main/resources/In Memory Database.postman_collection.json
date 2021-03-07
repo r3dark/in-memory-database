@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "ad5c1eef-bc03-4502-9f12-5717fb635322",
+		"name": "In Memory Database",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "database",
+			"item": [
+				{
+					"name": "create database",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"database_name\" : \"ABC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/database/create",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"database",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detete database",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/database/delete?name=ABC",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"database",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ABC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all databases",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/in-memory-database/database/getall",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"database",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "table",
+			"item": [
+				{
+					"name": "create table",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"database_name\" : \"ABC\",\n    \"table\" : {\n        \"table_name\" : \"Users\",\n        \"columns\" : [\n            {\n                \"name\" : \"userName\",\n                \"type\" : \"str\",\n                \"is_mandatory\" : true,\n                \"min\" : 0,\n                \"max\" : 20\n            },\n            {\n                \"name\" : \"userAge\",\n                \"type\" : \"int\",\n                \"is_mandatory\" : false,\n                \"min\" : 1,\n                \"max\" : 100\n            },\n            {\n                \"name\" : \"userContact\",\n                \"type\" : \"str\",\n                \"is_mandatory\" : true,\n                \"min\" : 0,\n                \"max\" : 10\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/table/create",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"table",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tables",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/table/getall?database_name=ABC",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"table",
+								"getall"
+							],
+							"query": [
+								{
+									"key": "database_name",
+									"value": "ABC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete table",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"database_name\" : \"ABC\",\n    \"table_name\" : \"Users\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/table/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"table",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "insert data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"database_name\" : \"abc\",\n    \"table_name\" : \"users\",\n    \"data\" : {\n        \"userName\" : \"sal\",\n        \"userContact\": \"ok\",\n        \"userAge\" : 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/data/insert",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"data",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"database_name\" : \"abc\",\n    \"table_name\" : \"users\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/data/getall",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"data",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"database_name\" : \"abc\",\n    \"table_name\" : \"users\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/in-memory-database/data/get?column=userName&value=sal",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"in-memory-database",
+								"data",
+								"get"
+							],
+							"query": [
+								{
+									"key": "column",
+									"value": "userName"
+								},
+								{
+									"key": "value",
+									"value": "sal"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
